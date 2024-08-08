@@ -1,29 +1,36 @@
-inputText = document.getElementById('text-input');
-textValue = inputText.value;
-checkButton = document.getElementById('check-btn');
-
-checkInput = () => {
-    if (inputText.value === null || inputText.value === '') {
+const inputText = document.getElementById('text-input');
+const checkButton = document.getElementById('check-btn');
+let textValue = inputText.value;
+const checkInput = () => {
+    textValue = inputText.value;
+    if (textValue === null || textValue === '') {
         alert('Please input a value');
         return;
-    }}
+    } else {
+        let procecedWord = generateWord(textValue);
+        renderResult(isPalindrome(procecedWord));
+    }
+}
+
 const generateWord = (word) => {
-    removeSigns = word.replace(/[^a-zA-Z]/g, '');
-    lowerCase = removeSigns.toLowerCase();
+    const removeSigns = word.replace(/[^a-zA-Z0-9]/g, '');
+    const lowerCase = removeSigns.toLowerCase();
+    console.log(lowerCase);
     return lowerCase;
 }
-procecedWord = generateWord(textValue);
 
 const isPalindrome = (word) => {
-    let reversedWord = word.reverse();
+    let reversedWord = word.split('').reverse().join('');
     return word === reversedWord;
 }
 
-checkButton.addEventListener('click', () => {
-    checkInput();
-    if (isPalindrome(procecedWord)) {
-        alert('This is a palindrome');
-    } else {
-        alert('This is not a palindrome');
+checkButton.addEventListener('click', checkInput);
+
+const renderResult = (result) => {
+    let resultP = document.getElementById('result');
+    if (result) {
+        resultP.innerHTML = `${textValue} is a palindrome`;
+    } else { 
+        resultP.innerHTML = `${textValue} is not a palindrome`;
     }
-});
+}
