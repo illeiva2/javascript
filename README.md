@@ -41,7 +41,7 @@ Una lista de tareas pendientes.
 
 1. Clona el repositorio:
     ```sh
-    git clone https://github.com/tu-usuario/tu-repositorio.git
+    git clone https://github.com/illeiva2/javascript.git
     ```
 
 2. Navega al directorio del proyecto que deseas ejecutar:
@@ -50,6 +50,9 @@ Una lista de tareas pendientes.
     ```
 
 3. Abre el archivo `index.html` en tu navegador.
+   
+
+4. También puedes usar alguna extensión de VSCode (como liveserver) para ejecutar la página.
 
 ## Contribuciones
 
